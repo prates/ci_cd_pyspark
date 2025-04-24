@@ -28,7 +28,7 @@ jobs:
           zip -r artefact.zip output/ 
 
       - name: Upload artifact to enable deployment
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: poduction file
           path: ./artefact.zip
