@@ -11,28 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
+      - name: install pytest
+        run: |
+          pip install pytest
 
       - name: Install Dependencies
         run: |
-          cd todo
-          npm install
+          pip install -r app/requirement.txt
 
       - name: Build Project
         run: |
-          cd todo
-          npm run build
+          mkdir output
+          pip install -r app/requirement.txt -t output/
+          zip -r artefact.zip output/ 
 
       - name: Upload artifact to enable deployment
         uses: actions/upload-artifact@v3
         with:
           name: poduction file
-          path: ./todo/build
+          path: ./artefact.zip
 
   # Deploy Job
   deploy:
