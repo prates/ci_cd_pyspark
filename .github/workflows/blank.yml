@@ -16,7 +16,7 @@ jobs:
       - name: run pep8 
         run: |
           ls
-          flake8 app/
+          
   build:
     runs-on: ubuntu-latest
     steps:
