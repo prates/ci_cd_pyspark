@@ -15,6 +15,7 @@ jobs:
           pip install flake8
       - name: run pep8 
         run: |
+          ls
           flake8 app/
   build:
     runs-on: ubuntu-latest
