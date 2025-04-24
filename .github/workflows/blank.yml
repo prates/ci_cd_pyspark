@@ -45,7 +45,7 @@ jobs:
   # Deploy Job
   deploy:
    
-    needs: build
+    needs: build, check-code
     
     runs-on: ubuntu-latest
     steps:
