@@ -7,6 +7,12 @@ on:
 
 jobs:
   # Build Job
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      
   check-code:
     runs-on: ubuntu-latest
     steps:
@@ -20,9 +26,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
       - name: install pytest
         run: |
           pip install pytest
